@@ -15,9 +15,7 @@ variable "vcd_user" {}
 variable "vcd_org" {}
 variable "vcd_vdc" {}
 variable "vcd_url" {}
-variable "vcd_allow_unverified_ssl" {
-    default = true
-}
+variable "vcd_allow_unverified_ssl" {}
 
 # Configure the VMware vCloud Director Provider
 provider "vcd" {
@@ -50,22 +48,21 @@ resource "vcd_vapp_org_network" "vappOrgNet" {
 
 # Create the VM in the vApp
 resource "vcd_vapp_vm" "VMs" {
-  count = 2
+  count = var.vm_instances
   vapp_name = var.vapp_name
   name = "${var.vm_name}-${count.index}"
   catalog_name = var.catalog
   template_name = var.template
-  power_on = false
+  power_on = var.power_on
   computer_name = var.vm_name
-  memory = 4096
-  cpus = 2
-  cpu_cores = 1
+  memory = var.mem
+  cpus = var.cpu_num
+  cpu_cores = var.cores
 
   # Map the network from the data source to the VM
   network {
       name = var.org_network
       type = "org"
-      #ip = "192.168.2.5"
       ip_allocation_mode = "POOL"
       is_primary = true
   }
