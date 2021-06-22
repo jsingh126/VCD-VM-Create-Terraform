@@ -17,7 +17,7 @@ catalog = ""
 template = ""
 #Number of VMs in the vApp
 vm_instances = 1
-# you can set these values to null if you dont want these values to default to the vaules from template.
+# you can set these values to null if you want these values to default to the vaules from template.
 mem = null
 cpu_num = null
 cores = null
