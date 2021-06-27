@@ -6,7 +6,7 @@ This repo contain different examples on how to create Virtual Machines in vCloud
 3. Create VMs using (Use-complex-Map which incluced foreach and flatten function) https://www.terraform.io/docs/language/functions/flatten.html, This repo really goes in deep how to use foreach and flatten function https://github.com/ned1313/terraform-tuesdays/tree/main/2021-01-25-ForLoops
 
 ## Prerequisites
-Install Terraform
+Terraform
 
 ## How to use?
 1. Clone the repo locally using "git clone"
